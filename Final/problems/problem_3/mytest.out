@@ -1,0 +1,10 @@
+Printing listA...
+5, 10, 15
+Printing listB...
+5, 10, 15
+Printing listC...
+5, 25, 55
+(listA == listB)=1
+(listA == listA)=1
+(listA == listC)=0
+(listB == listC)=0

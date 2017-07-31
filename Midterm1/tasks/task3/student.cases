@@ -1,0 +1,58 @@
+# student cases
+runtest task29 '
+
+
+
+
+
+
+
+
+
+' "Empty lines: 10" 0 5 "test1"
+
+runtest task29 'aaaa
+
+    ,
+
+d
+d
+d
+,,,,,,,,
+
+
+' "Empty lines: 4" 0 5 "test2"
+
+runtest task29 '
+
+
+        ,
+        , ,
+        aaa
+        b
+    bb
+q
+123
+    \
+"
+"
+,   asdf' "Empty lines: 3" 0 5 "test3"
+
+runtest task29 '' "Empty lines: 0" 0 5 "test4"
+
+runtest task29 '
+
+asdf
+
+
+
+
+     \
+     [kj
+   asc]
+asciiii
+
+' "Empty lines: 7" 0 5 "test5"
+
+runtest task29 '
+' "Empty lines: 1" 0 5 "test6"

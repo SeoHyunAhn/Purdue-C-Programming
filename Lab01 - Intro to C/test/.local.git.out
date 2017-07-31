@@ -1,0 +1,166 @@
+[master ccee180] 0 of 100
+ Committer: CS24000 Account <cs240@data.cs.purdue.edu>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 3 files changed, 18 insertions(+)
+ create mode 100644 test/.local.git.out
+ create mode 100644 test/.local.total.out
+ create mode 100644 test/total.out
+[master db052ae] 0 of 100
+ Committer: CS24000 Account <cs240@data.cs.purdue.edu>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 6 files changed, 30 insertions(+), 4 deletions(-)
+[master f4ac365] 60 of 100
+ Committer: CS24000 Account <cs240@data.cs.purdue.edu>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 4 files changed, 28 insertions(+), 4 deletions(-)
+ create mode 100755 high-low
+[master c28b481] 100 of 100
+ Committer: CS24000 Account <cs240@data.cs.purdue.edu>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 5 files changed, 30 insertions(+), 5 deletions(-)
+[master (root-commit) b1d14b4] 0 of 100
+ Committer: CS24000 Account <cs240@data.cs.purdue.edu>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 21 files changed, 705 insertions(+)
+ create mode 100644 add.c
+ create mode 100644 add.h
+ create mode 100644 exp.c
+ create mode 100644 exp_dec.c
+ create mode 100644 exp_short.c
+ create mode 100644 high-low.c
+ create mode 100755 minmax
+ create mode 100644 minmax.c
+ create mode 100644 test/.local.git.out
+ create mode 100644 test/.local.total.out
+ create mode 100644 test/README
+ create mode 100644 test/README-NEW_TESTS
+ create mode 100755 test/in1
+ create mode 100755 test/test0
+ create mode 100755 test/test1
+ create mode 100755 test/test2
+ create mode 100755 test/test3
+ create mode 100755 test/test4
+ create mode 100755 test/testall
+ create mode 100644 test/testing.tcl
+ create mode 100644 test/total.out
+[master 30d96de] 0 of 100
+ Committer: CS24000 Account <cs240@data.cs.purdue.edu>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 2 files changed, 45 insertions(+)
+[master 6b0d4b4] 0 of 100
+ Committer: CS24000 Account <cs240@data.cs.purdue.edu>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 3 files changed, 25 insertions(+)
+[master 0044a8e] 0 of 100
+ 10 files changed, 58 insertions(+), 5 deletions(-)
+ create mode 100755 a.out
+ create mode 100644 add.o
+ create mode 100755 exp
+ create mode 100644 exp_short.o
+ create mode 100755 hello
+ create mode 100644 hello.c
+ create mode 100755 high-low.org
+[master 951061d] 20 of 100
+ 4 files changed, 20 insertions(+), 2 deletions(-)
+ create mode 100755 high-low
+[master b9237ae] 20 of 100
+ 5 files changed, 20 insertions(+), 7 deletions(-)
+ rewrite a.out (80%)
+ rewrite high-low (80%)
+[master c5e56e0] 20 of 100
+ 4 files changed, 20 insertions(+), 7 deletions(-)
+[master 1f3b17b] 20 of 100
+ 3 files changed, 12 insertions(+), 1 deletion(-)
+[master efc0234] 20 of 100
+ 5 files changed, 18 insertions(+), 5 deletions(-)
+ rewrite a.out (80%)
+ rewrite high-low (79%)
+[master 079849a] 20 of 100
+ 5 files changed, 16 insertions(+), 3 deletions(-)
+[master 0772f37] 20 of 100
+ 5 files changed, 58 insertions(+), 40 deletions(-)
+ rewrite a.out (74%)
+ rewrite high-low (77%)
+ rewrite high-low.c (68%)
+[master 5df9b7b] 40 of 100
+ 6 files changed, 19 insertions(+), 11 deletions(-)
+[master f186eec] 100 of 100
+ 5 files changed, 20 insertions(+), 8 deletions(-)
+[master 20427f9] 100 of 100
+ 2 files changed, 11 insertions(+)

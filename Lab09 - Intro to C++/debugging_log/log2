@@ -1,0 +1,1527 @@
+Tue Apr 4 13:51:14 EDT 2017
++break main
+Breakpoint 1 at 0x401368: file TestDLList.cpp, line 94.
++run test2
+Starting program: /home/u91/ahn67/cs240/lab9-src/TestDLList test2
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffe6e8) at TestDLList.cpp:94
+94		if (argc < 2) {
++s
+99		if (strcmp(argv[1],"test1")==0) {
++s
+101		} else if (strcmp(argv[1],"test2")==0) {
++s
+102			test2();
++s
+test2 () at TestDLList.cpp:18
+18	{
++s
+19		DLList list1; DLList list2;
++s
+DLList::DLList (this=0x7fffffffe5b0) at DLList.cpp:9
+9	    head = new DLNode();
++s
+10	    head->data = 0;
++s
+11	    head->next = head;
++s
+12	    head->prev = head;
++s
+14	}
++s
+DLList::DLList (this=0x7fffffffe5c0) at DLList.cpp:9
+9	    head = new DLNode();
++s
+10	    head->data = 0;
++s
+11	    head->next = head;
++s
+12	    head->prev = head;
++s
+14	}
++s
+test2 () at TestDLList.cpp:20
+20		list1 << 12 << 2222 << 123 << 12;
++s
+DLList::operator<< (this=0x7fffffffe5b0, data=12) at DLList.h:36
+36			this->insertFront(data);
++s
+DLList::insertFront (this=0x7fffffffe5b0, data=12) at DLList.cpp:71
+71	    DLNode * temp =new DLNode();
++s
+72	    temp->data=data;
++s
+73	    temp->next=head->next;
++s
+74	    head->next = temp;
++s
+75	    temp->next->prev=temp;
++s
+76	    temp->prev=head;
++s
+82	}
++s
+DLList::operator<< (this=0x7fffffffe5b0, data=12) at DLList.h:38
+38			return *this;
++s
+39		}
++s
+DLList::operator<< (this=0x7fffffffe5b0, data=2222) at DLList.h:36
+36			this->insertFront(data);
++n
+38			return *this;
++n
+39		}
++n
+test2 () at TestDLList.cpp:21
+21		list2 << 11 << 1 << 123 << 2 << 12;
++n
+23		std::cout<<"List 1:"<<std::endl;
++n
+24		list1.print();
++print list1
+$1 = {head = 0x604010}
++s
+DLList::print (this=0x7fffffffe5b0) at DLList.cpp:30
+30	    DLNode * e=head->next;
++s
+31	    while (head!=e) {
++n
+32	        printf("%d\n", e->data);
++n
+33	        e=e->next;
++n
+31	    while (head!=e) {
++n
+32	        printf("%d\n", e->data);
++n
+33	        e=e->next;
++n
+31	    while (head!=e) {
++n
+32	        printf("%d\n", e->data);
++n
+33	        e=e->next;
++n
+31	    while (head!=e) {
++n
+32	        printf("%d\n", e->data);
++n
+33	        e=e->next;
++n
+31	    while (head!=e) {
++n
+36	}
++n
+test2 () at TestDLList.cpp:25
+25		std::cout<<std::endl;
++n
+27		std::cout<<"List 2:"<<std::endl;
++n
+28		list2.print();
++n
+29		std::cout<<std::endl;
++n
+31		std::cout<<"List 1 - List 2"<<std::endl;
++s
+32		(list1 - list2).print();
++s
+DLList::operator- (this=0x7fffffffe5b0, other=...) at DLList.h:52
+52			return *difference(other);
++s
+DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:109
+109		DLList * diff = new DLList();
++s
+DLList::DLList (this=0x604170) at DLList.cpp:9
+9	    head = new DLNode();
++s
+10	    head->data = 0;
++s
+11	    head->next = head;
++s
+12	    head->prev = head;
++s
+14	}
++s
+DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:110
+110	    DLNode * e = head->next;
++s
+111	    DLNode * temp = list.head->next;
++s
+112	    for (; e!=head; e=e->next) {
++p e->data
+$2 = 12
++s
+113	        for (; temp!=head; temp=temp->next) {
++s
+114	            if (temp->data != e->data) {
++s
+113	        for (; temp!=head; temp=temp->next) {
++s
+114	            if (temp->data != e->data) {
++s
+115	                DLNode * differ =new DLNode();
++s
+116	                differ->data=temp->data;
++p differ->data
+$3 = 0
++s
+117	                differ->next=diff->head->next;
++p differ->data
+$4 = 2
++s
+118	                diff->head->next = differ;
++s
+119	                differ->next->prev=differ;
++s
+120	                differ->prev=diff->head;
++s
+113	        for (; temp!=head; temp=temp->next) {
++s
+114	            if (temp->data != e->data) {
++s
+115	                DLNode * differ =new DLNode();
++s
+116	                differ->data=temp->data;
++p differ
+$5 = (DLNode *) 0x6041d0
++s
+117	                differ->next=diff->head->next;
++s
+118	                diff->head->next = differ;
++s
+119	                differ->next->prev=differ;
++s
+120	                differ->prev=diff->head;
++s
+113	        for (; temp!=head; temp=temp->next) {
++s
+114	            if (temp->data != e->data) {
++s
+115	                DLNode * differ =new DLNode();
++s
+116	                differ->data=temp->data;
++s
+117	                differ->next=diff->head->next;
++s
+118	                diff->head->next = differ;
++s
+119	                differ->next->prev=differ;
++s
+120	                differ->prev=diff->head;
++s
+113	        for (; temp!=head; temp=temp->next) {
++s
+114	            if (temp->data != e->data) {
++s
+115	                DLNode * differ =new DLNode();
++s
+116	                differ->data=temp->data;
++s
+117	                differ->next=diff->head->next;
++s
+118	                diff->head->next = differ;
++s
+119	                differ->next->prev=differ;
++s
+120	                differ->prev=diff->head;
++s
+113	        for (; temp!=head; temp=temp->next) {
++s
+114	            if (temp->data != e->data) {
++s
+115	                DLNode * differ =new DLNode();
++s
+116	                differ->data=temp->data;
++s
+117	                differ->next=diff->head->next;
++s
+118	                diff->head->next = differ;
++s
+119	                differ->next->prev=differ;
++s
+120	                differ->prev=diff->head;
++s
+113	        for (; temp!=head; temp=temp->next) {
++s
+114	            if (temp->data != e->data) {
++s
+113	        for (; temp!=head; temp=temp->next) {
++s
+114	            if (temp->data != e->data) {
++s
+115	                DLNode * differ =new DLNode();
++s
+116	                differ->data=temp->data;
++s
+117	                differ->next=diff->head->next;
++s
+118	                diff->head->next = differ;
++s
+119	                differ->next->prev=differ;
++s
+120	                differ->prev=diff->head;
++s
+113	        for (; temp!=head; temp=temp->next) {
++s
+114	            if (temp->data != e->data) {
++s
+115	                DLNode * differ =new DLNode();
++s
+116	                differ->data=temp->data;
++s
+117	                differ->next=diff->head->next;
++s
+118	                diff->head->next = differ;
++s
+119	                differ->next->prev=differ;
++s
+120	                differ->prev=diff->head;
++s
+113	        for (; temp!=head; temp=temp->next) {
++s
+114	            if (temp->data != e->data) {
++s
+115	                DLNode * differ =new DLNode();
++s
+116	                differ->data=temp->data;
++s
+117	                differ->next=diff->head->next;
++s
+118	                diff->head->next = differ;
++s
+119	                differ->next->prev=differ;
++s
+120	                differ->prev=diff->head;
++s
+113	        for (; temp!=head; temp=temp->next) {
++s
+114	            if (temp->data != e->data) {
++s
+115	                DLNode * differ =new DLNode();
++s
+116	                differ->data=temp->data;
++s
+117	                differ->next=diff->head->next;
++s
+118	                diff->head->next = differ;
++s
+119	                differ->next->prev=differ;
++s
+120	                differ->prev=diff->head;
++s
+113	        for (; temp!=head; temp=temp->next) {
++s
+114	            if (temp->data != e->data) {
++s
+115	                DLNode * differ =new DLNode();
++s
+116	                differ->data=temp->data;
++s
+117	                differ->next=diff->head->next;
++s
+118	                diff->head->next = differ;
++s
+119	                differ->next->prev=differ;
++s
+120	                differ->prev=diff->head;
++s
+113	        for (; temp!=head; temp=temp->next) {
++s
+114	            if (temp->data != e->data) {
++s
+113	        for (; temp!=head; temp=temp->next) {
++s
+114	            if (temp->data != e->data) {
++s
+115	                DLNode * differ =new DLNode();
++s
+116	                differ->data=temp->data;
++s
+117	                differ->next=diff->head->next;
++s
+118	                diff->head->next = differ;
++s
+119	                differ->next->prev=differ;
++s
+120	                differ->prev=diff->head;
++s
+113	        for (; temp!=head; temp=temp->next) {
++s
+114	            if (temp->data != e->data) {
++s
+115	                DLNode * differ =new DLNode();
++s
+116	                differ->data=temp->data;
++s
+117	                differ->next=diff->head->next;
++s
+118	                diff->head->next = differ;
++s
+119	                differ->next->prev=differ;
++s
+120	                differ->prev=diff->head;
++s
+113	        for (; temp!=head; temp=temp->next) {
++s
+114	            if (temp->data != e->data) {
++s
+115	                DLNode * differ =new DLNode();
++s
+116	                differ->data=temp->data;
++s
+117	                differ->next=diff->head->next;
++s
+118	                diff->head->next = differ;
++s
+119	                differ->next->prev=differ;
++s
+120	                differ->prev=diff->head;
++s
+113	        for (; temp!=head; temp=temp->next) {
++s
+114	            if (temp->data != e->data) {
++s
+115	                DLNode * differ =new DLNode();
++s
+116	                differ->data=temp->data;
++s
+117	                differ->next=diff->head->next;
++s
+118	                diff->head->next = differ;
++s
+119	                differ->next->prev=differ;
++s
+120	                differ->prev=diff->head;
++s
+113	        for (; temp!=head; temp=temp->next) {
++s
+114	            if (temp->data != e->data) {
++s
+115	                DLNode * differ =new DLNode();
++s
+116	                differ->data=temp->data;
++s
+117	                differ->next=diff->head->next;
++s
+118	                diff->head->next = differ;
++s
+119	                differ->next->prev=differ;
++s
+120	                differ->prev=diff->head;
++s
+113	        for (; temp!=head; temp=temp->next) {
++s
+114	            if (temp->data != e->data) {
++s
+113	        for (; temp!=head; temp=temp->next) {
++s
+114	            if (temp->data != e->data) {
++s
+115	                DLNode * differ =new DLNode();
++s
+116	                differ->data=temp->data;
++s
+117	                differ->next=diff->head->next;
++s
+118	                diff->head->next = differ;
++s
+119	                differ->next->prev=differ;
++s
+120	                differ->prev=diff->head;
++s
+113	        for (; temp!=head; temp=temp->next) {
++s
+114	            if (temp->data != e->data) {
++s
+115	                DLNode * differ =new DLNode();
++s
+116	                differ->data=temp->data;
++s
+117	                differ->next=diff->head->next;
++s
+118	                diff->head->next = differ;
++s
+119	                differ->next->prev=differ;
++s
+120	                differ->prev=diff->head;
++s
+113	        for (; temp!=head; temp=temp->next) {
++s
+114	            if (temp->data != e->data) {
++s
+115	                DLNode * differ =new DLNode();
++s
+116	                differ->data=temp->data;
++s
+117	                differ->next=diff->head->next;
++s
+118	                diff->head->next = differ;
++s
+119	                differ->next->prev=differ;
++s
+120	                differ->prev=diff->head;
++s
+113	        for (; temp!=head; temp=temp->next) {
++s
+114	            if (temp->data != e->data) {
++s
+115	                DLNode * differ =new DLNode();
++s
+116	                differ->data=temp->data;
++s
+117	                differ->next=diff->head->next;
++s
+118	                diff->head->next = differ;
++s
+119	                differ->next->prev=differ;
++s
+120	                differ->prev=diff->head;
++s
+113	        for (; temp!=head; temp=temp->next) {
++s
+114	            if (temp->data != e->data) {
++s
+115	                DLNode * differ =new DLNode();
++s
+116	                differ->data=temp->data;
++s
+117	                differ->next=diff->head->next;
++s
+118	                diff->head->next = differ;
++s
+119	                differ->next->prev=differ;
++s
+120	                differ->prev=diff->head;
++s
+113	        for (; temp!=head; temp=temp->next) {
++s
+114	            if (temp->data != e->data) {
++s
+113	        for (; temp!=head; temp=temp->next) {
++s
+114	            if (temp->data != e->data) {
++s
+115	                DLNode * differ =new DLNode();
++s
+116	                differ->data=temp->data;
++s
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++n
+115	                DLNode * differ =new DLNode();
++n
+116	                differ->data=temp->data;
++n
+117	                differ->next=diff->head->next;
++n
+118	                diff->head->next = differ;
++n
+119	                differ->next->prev=differ;
++n
+120	                differ->prev=diff->head;
++n
+113	        for (; temp!=head; temp=temp->next) {
++n
+114	            if (temp->data != e->data) {
++break 35
+Breakpoint 2 at 0x4015cf: file DLList.cpp, line 35.
++list
+109		DLList * diff = new DLList();
+110	    DLNode * e = head->next;
+111	    DLNode * temp = list.head->next;
+112	    for (; e!=head; e=e->next) {
+113	        for (; temp!=head; temp=temp->next) {
+114	            if (temp->data != e->data) {
+115	                DLNode * differ =new DLNode();
+116	                differ->data=temp->data;
+117	                differ->next=diff->head->next;
+118	                diff->head->next = differ;
++break 120
+Breakpoint 3 at 0x4017b6: file DLList.cpp, line 120.
++cont
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++cont
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++s
+113	        for (; temp!=head; temp=temp->next) {
++s
+114	            if (temp->data != e->data) {
++s
+115	                DLNode * differ =new DLNode();
++s
+116	                differ->data=temp->data;
++cont
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++break 125
+Breakpoint 4 at 0x4017ff: file DLList.cpp, line 125.
++cont
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++cont
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++c
+Continuing.
+
+Breakpoint 3, DLList::difference (this=0x7fffffffe5b0, list=...) at DLList.cpp:120
+120	                differ->prev=diff->head;
++q

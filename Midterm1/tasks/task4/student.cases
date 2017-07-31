@@ -1,0 +1,11 @@
+# Student test cases
+runtest task35 "t" 't is a palindrome' 0 5
+runtest task35 "ttt" 'ttt is a palindrome' 0 5
+runtest task35 "tight" 'tight is not a palindrome' 0 5
+runtest task35 "racecar" 'racecar is a palindrome' 0 5
+runtest task35 "are we not drawn onward we few drawn onward to new era" 'are we not drawn onward we few drawn onward to new era is a palindrome' 0 5
+runtest task35 "armadillo ollidamra" 'armadillo ollidamra is a palindrome' 0 5
+runtest task35 "t hiht" 't hiht is a palindrome' 0 5
+runtest task35 "tig" 'tig is not a palindrome' 0 5
+runtest task35 "t	igit" 't	igit is a palindrome' 0 5
+runtest task35 "asdfasdfasdfasdfasdffdsafdsafdsafdsafdsaG" 'asdfasdfasdfasdfasdffdsafdsafdsafdsafdsaG is not a palindrome' 0 5

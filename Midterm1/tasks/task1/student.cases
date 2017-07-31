@@ -1,0 +1,6 @@
+# Student test cases
+runtest task14 "2 3" '2 to the power of 3 is 8' 0 4
+runtest task14 "5 9" '5 to the power of 9 is 1953125' 0 4
+runtest task14 "0 3" 'exponent returned value -1' 1 4
+runtest task14 "5 20" 'exponent returned value -1' 1 4
+runtest task14 "8 3" 'exponent returned value -1' 1 4

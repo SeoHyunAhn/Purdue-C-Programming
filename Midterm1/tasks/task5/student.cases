@@ -1,0 +1,12 @@
+# Student test cases
+runtest task33 "\"A A A AA\" \"A\"" 'String "A A A AA" after censorWord is "X X X AA"' 0 5
+runtest task33 "\"O o AA\" \"o\"" 'String "O o AA" after censorWord is "O X AA"' 0 5
+runtest task33 "\"1231123\" \"1\"" 'String "1231123" after censorWord is "1231123"' 0 5
+runtest task33 "\"A B C D A B C D\" \"C\"" 'String "A B C D A B C D" after censorWord is "A B X D A B X D"' 0 5
+runtest task33 "\"Hello world\" \"world\"" 'String "Hello world" after censorWord is "Hello XXXXX"' 0 5
+runtest task33 "\"Hello hEllo HELLO HellO hello_world\" \"HellO\"" 'String "Hello hEllo HELLO HellO hello_world" after censorWord is "Hello hEllo HELLO XXXXX hello_world"' 0 5
+runtest task33 "\"What is the word for censor word function\" \"word\"" 'String "What is the word for censor word function" after censorWord is "What is the XXXX for censor XXXX function"' 0 5
+runtest task33 "\"Yet another compiler compiler is called YACC\" \"compiler\"" 'String "Yet another compiler compiler is called YACC" after censorWord is "Yet another XXXXXXXX XXXXXXXX is called YACC"' 0 5
+runtest task33 "\"Do not trouble trouble until trouble troubles you\" \"troubles\"" 'String "Do not trouble trouble until trouble troubles you" after censorWord is "Do not trouble trouble until trouble XXXXXXXX you"' 0 5
+runtest task33 "\"Do not trouble trouble until trouble troubles you\" \"Troubles\"" 'String "Do not trouble trouble until trouble troubles you" after censorWord is "Do not trouble trouble until trouble troubles you"' 0 5
+

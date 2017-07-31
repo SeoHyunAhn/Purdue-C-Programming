@@ -1,0 +1,7 @@
+File Type		Extension	Signature	Signature Offset
+Executable file  	.exe 		.ELF		0
+WAV File 		.wav		WAVEfmt		0
+JPEG			.jpeg		....jP		0
+GIF			.gif		GIF89a		0
+TAR			.tar.z		.ustar  	0
+ZIP			.zip		PK..		0

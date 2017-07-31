@@ -1,0 +1,9 @@
+Linux data.cs.purdue.edu 4.6.7 #1 SMP Sat Nov 5 23:44:47 EDT 2016 x86_64 
+Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz GenuineIntel GNU/Linux
+
+Endian: Machine is Little Endian
+
+
+SunOS lore.cs.purdue.edu 5.10 Generic_150400-44 sun4u sparc SUNW,Sun-Fire-V445
+
+Endian: Machine is Big Endian

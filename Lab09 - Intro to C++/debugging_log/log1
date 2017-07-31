@@ -1,0 +1,189 @@
+Tue Apr 4 13:34:20 EDT 2017
++break main
+Breakpoint 1 at 0x401368: file TestDLList.cpp, line 94.
++run test2
+Starting program: /home/u91/ahn67/cs240/lab9-src/TestDLList test2
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffe6e8) at TestDLList.cpp:94
+94		if (argc < 2) {
++n
+99		if (strcmp(argv[1],"test1")==0) {
++n
+101		} else if (strcmp(argv[1],"test2")==0) {
++n
+102			test2();
++n
+114		return 0;
++n
+115	}
++n
+0x00007ffff723b6d0 in __libc_start_main () from /lib64/libc.so.6
++n
+Single stepping until exit from function __libc_start_main,
+which has no line number information.
+[Inferior 1 (process 22982) exited normally]
++n
+The program is not being run.
++run test2
+Starting program: /home/u91/ahn67/cs240/lab9-src/TestDLList test2
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffe6e8) at TestDLList.cpp:94
+94		if (argc < 2) {
++s
+99		if (strcmp(argv[1],"test1")==0) {
++s
+101		} else if (strcmp(argv[1],"test2")==0) {
++s
+102			test2();
++s
+test2 () at TestDLList.cpp:18
+18	{
++s
+19		DLList list1; DLList list2;
++s
+DLList::DLList (this=0x7fffffffe5b0) at DLList.cpp:9
+9	    head = new DLNode();
++s
+10	    head->data = 0;
++s
+11	    head->next = head;
++s
+12	    head->prev = head;
++s
+14	}
++s
+DLList::DLList (this=0x7fffffffe5c0) at DLList.cpp:9
+9	    head = new DLNode();
++s
+10	    head->data = 0;
++s
+11	    head->next = head;
++s
+12	    head->prev = head;
++s
+14	}
++s
+test2 () at TestDLList.cpp:20
+20		list1 << 12 << 2222 << 123 << 12;
++s
+DLList::operator<< (this=0x7fffffffe5b0, data=12) at DLList.h:36
+36			this->insertFront(data);
++s
+DLList::insertFront (this=0x7fffffffe5b0, data=12) at DLList.cpp:71
+71	    DLNode * temp =new DLNode();
++s
+72	    temp->data=data;
++s
+73	    temp->next=head->next;
++s
+74	    head->next = temp;
++s
+75	    temp->next->prev=temp;
++s
+76	    temp->prev=head;
++s
+82	}
++s
+DLList::operator<< (this=0x7fffffffe5b0, data=12) at DLList.h:38
+38			return *this;
++s
+39		}
++s
+DLList::operator<< (this=0x7fffffffe5b0, data=2222) at DLList.h:36
+36			this->insertFront(data);
++s
+DLList::insertFront (this=0x7fffffffe5b0, data=2222) at DLList.cpp:71
+71	    DLNode * temp =new DLNode();
++s
+72	    temp->data=data;
++s
+73	    temp->next=head->next;
++s
+74	    head->next = temp;
++s
+75	    temp->next->prev=temp;
++s
+76	    temp->prev=head;
++s
+82	}
++s
+DLList::operator<< (this=0x7fffffffe5b0, data=2222) at DLList.h:38
+38			return *this;
++s
+39		}
++s
+DLList::operator<< (this=0x7fffffffe5b0, data=123) at DLList.h:36
+36			this->insertFront(data);
++s
+DLList::insertFront (this=0x7fffffffe5b0, data=123) at DLList.cpp:71
+71	    DLNode * temp =new DLNode();
++s
+72	    temp->data=data;
++s
+73	    temp->next=head->next;
++s
+74	    head->next = temp;
++s
+75	    temp->next->prev=temp;
++s
+76	    temp->prev=head;
++s
+82	}
++s
+DLList::operator<< (this=0x7fffffffe5b0, data=123) at DLList.h:38
+38			return *this;
++s
+39		}
++s
+DLList::operator<< (this=0x7fffffffe5b0, data=12) at DLList.h:36
+36			this->insertFront(data);
++s
+DLList::insertFront (this=0x7fffffffe5b0, data=12) at DLList.cpp:71
+71	    DLNode * temp =new DLNode();
++s
+72	    temp->data=data;
++s
+73	    temp->next=head->next;
++s
+74	    head->next = temp;
++s
+75	    temp->next->prev=temp;
++s
+76	    temp->prev=head;
++s
+82	}
++s
+DLList::operator<< (this=0x7fffffffe5b0, data=12) at DLList.h:38
+38			return *this;
++s
+39		}
++s
+test2 () at TestDLList.cpp:21
+21		list2 << 11 << 1 << 123 << 2 << 12;
++s
+DLList::operator<< (this=0x7fffffffe5c0, data=11) at DLList.h:36
+36			this->insertFront(data);
++s
+DLList::insertFront (this=0x7fffffffe5c0, data=11) at DLList.cpp:71
+71	    DLNode * temp =new DLNode();
++s
+72	    temp->data=data;
++s
+73	    temp->next=head->next;
++s
+74	    head->next = temp;
++s
+75	    temp->next->prev=temp;
++s
+76	    temp->prev=head;
++s
+82	}
++s
+DLList::operator<< (this=0x7fffffffe5c0, data=11) at DLList.h:38
+38			return *this;
++s
+39		}
++s
+DLList::operator<< (this=0x7fffffffe5c0, data=1) at DLList.h:36
+36			this->insertFront(data);
++q

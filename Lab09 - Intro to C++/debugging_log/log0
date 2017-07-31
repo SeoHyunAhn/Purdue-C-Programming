@@ -1,0 +1,29 @@
+Fri Mar 31 16:55:24 EDT 2017
++b main
+Breakpoint 1 at 0x400e90: file TestStack.cpp, line 41.
++run test11
+Starting program: /home/u91/ahn67/cs240/lab9-src/TestStack test11
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffe6e8) at TestStack.cpp:41
+41		test1();
++n
+43		exit(0);
++n
+[Inferior 1 (process 29294) exited normally]
++n
+The program is not being run.
++n
+The program is not being run.
++n
+The program is not being run.
++n
+The program is not being run.
++n
+The program is not being run.
++n
+The program is not being run.
++n
+The program is not being run.
++n
+The program is not being run.
++q

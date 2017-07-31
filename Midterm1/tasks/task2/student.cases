@@ -1,0 +1,7 @@
+# Student test cases
+runtest task22 "abcde abcd" "Strings are different, return value is 1" 0 5
+runtest task22 "hello hellO" "Strings are different, return value is 1" 0 5
+runtest task22 "\"abc abc\" \" abc abc\"" "Strings are different, return value is 1" 0 5
+runtest task22 "\"abcabc\" \"abcabc \"" "Strings are different, return value is -1" 0 5
+runtest task22 "\" \" \" \"" "Strings are the same, return value is 0" 0 5
+runtest task22 "\"\" \" \"" "Strings are different, return value is -1" 0 5

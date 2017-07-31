@@ -1,0 +1,91 @@
+#!/bin/bash
+
+(make clean; make) || exit 1
+
+PROBLEM="emptyLineCount"
+
+if [ $# -ne 0 ]; then
+		CASES="${1}"
+else
+		CASES="student"
+fi
+
+total=0
+totalmax=0
+
+used_string=0
+
+stringcheck=$(cat *.c | grep string.h)
+if [[ $stringcheck ]]; then
+	(( used_string=1 ))
+fi
+
+# Test driver
+function runtest {
+	prog=$1
+	args1=$2
+	expoutput=$3
+	expretcode=$4
+	grade=$5
+	testcaseid=$6
+	totalmax=`expr $totalmax + $grade`;
+	descr="$prog $args"
+	echo "expout:$expoutput"
+	echo "expret: $expretcode"
+	echo "======= $testcaseid ==========="
+
+	#Run tested program
+	./$prog "$args1" > $prog.out 2>&1 
+	errorcode=$?
+	if [ "$errorcode" != "$expretcode" ]; then
+		 echo "Wrong return value from main, $expretcode != $errorcode"
+		 cat $prog.out
+		 echo "*****Test Failed*****";
+		 return
+	fi
+
+	diff $prog.out <(echo "${expoutput}") > diff.out
+	if [ $? -eq 0 ] && [ $errorcode -eq $expretcode ] && (( used_string == 0 )); then
+			cat diff.out
+			echo Test passed...;
+			printf "%-1s: %-30s %-3d of %-3d\n" "$descr " $testcaseid $grade $grade >> total.txt
+			(( total=total + grade ))
+	elif (( used_string == 1 )); then
+			echo "*****Test Failed*****"
+			echo -----------------------------
+			echo "Do NOT include string.h!"
+			echo -----------------------------
+			printf "%-1s: %-30s %-3d of %-3d\n" "$descr " $testcaseid 0 $grade >> total.txt;
+	else
+			echo "*****Test Failed*****"
+			echo "Your exit code: $errorcode, expected exit code: $expretcode"
+			echo ------ Your Output ----------
+			cat $prog.out
+			echo ------ Expected Output ------
+			echo "${expoutput}"
+			echo ------ Difference -----------
+			cat diff.out
+			echo -----------------------------
+			printf "%-1s: %-30s %-3d of %-3d\n" "$descr " $testcaseid 0 $grade >> total.txt
+	fi
+	echo
+}
+
+rm -f total.txt
+
+# List of tests running
+source ${CASES}.cases
+
+echo > total.out
+echo >> total.out
+echo   "-------------------------------------------------" >> total.out
+echo   "CS240 Midterm 1: ${PROBLEM}. $USER   " >> total.out
+date >> total.out
+echo   "-------------------------------------------------" >> total.out
+cat total.txt >> total.out >> total.out
+echo   "-------------------------------------------------" >> total.out
+echo   "CS240 - Midterm 1: ${PROBLEM}. $USER" `date` " Total: " $total of $totalmax >> total.out
+echo >> total.out
+
+cat total.out
+cat total.out >> .local.total.out

@@ -1,0 +1,37 @@
+#!/bin/bash
+
+OLD_PATH=${PATH}
+PATH=".:${PATH}"
+LAB="Exam1"
+finalGrade="0"
+finalTotal="180"
+testMode=""
+
+echo "======Running Global Testall======"
+rm -f totalGrade.txt
+cd tasks
+for d in task*
+do
+    cd $d
+    #echo `ls task*`
+    echo -n "$d/`ls task*` :" >> ../../totalGrade.txt
+    #echo -n ${d%?}: >> ../../totalGrade.txt
+    ./testall $testMode > /dev/null
+    #    grade="$(sed '2!d' total.out)"
+    grade=$((`sed -n 'x;$p' total.out | cut -d' ' -f16`))
+    total=$((`sed -n 'x;$p' total.out | cut -d' ' -f18`))
+    #    total="$(sed '3!d' total.out)"
+    finalGrade=$((grade + finalGrade))
+    #    finalTotal=$((total + finalTotal))
+    echo -n " $grade/$total" >> ../../totalGrade.txt
+    echo >> ../../totalGrade.txt
+    make clean > /dev/null
+    cd ..
+done
+cd ..
+echo >> totalGrade.txt
+echo   "CS240: $LAB. $USER" `date`  >> totalGrade.txt
+echo "Total Grade: $finalGrade/$finalTotal" >> totalGrade.txt
+cat totalGrade.txt
+
+PATH=${OLD_PATH}

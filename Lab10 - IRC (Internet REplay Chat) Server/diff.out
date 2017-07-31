@@ -1,0 +1,28 @@
+28c28
+< OK
+---
+> ERROR (No room)
+53,55d52
+< mary
+< spiderman
+< superman
+61c58
+< Already inside
+---
+> OK
+71c68
+< OK
+---
+> ERROR (user not in room)
+89c86
+< NO-NEW-MESSAGES
+---
+> ERROR (User not in room)
+94c91
+< NO-NEW-MESSAGES
+---
+> ERROR (User not in room)
+108c105
+< NO-NEW-MESSAGES
+---
+> ERROR (User not in room)

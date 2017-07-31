@@ -1,0 +1,10 @@
+void add_user();
+void create_room();
+void check_password();
+void enter_room();
+void leave_room();
+void get_messages(int num);
+void send_message(char * msg);
+void print_users_in_room();
+void print_users();
+void print_room();

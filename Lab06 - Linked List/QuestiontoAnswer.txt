@@ -1,0 +1,1 @@
+Q1. Difference between p, &p, and *p? what does p store?Q2. By what value foes p++ increment and why?refer to ptr-simple 

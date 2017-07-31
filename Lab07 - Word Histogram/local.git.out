@@ -1,0 +1,5 @@
+fatal: pathspec 'total.out' did not match any files
+git: 'total.out' is not a git command. See 'git --help'.
+git: 'local.git.out' is not a git command. See 'git --help'.
+[master cdfdec9] Lab7
+ 1 file changed, 26 insertions(+)
